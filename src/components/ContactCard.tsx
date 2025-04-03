@@ -1,25 +1,30 @@
 'use client';
 
 import { Card, Image } from 'react-bootstrap';
+import Link from 'next/link';
 // eslint-disable-next-line @typescript-eslint/quotes, import/extensions
 import { Contact } from "@prisma/client";
 
 /* Renders a single row in the List Stuff table. See list/page.tsx. */
-const ContactCard = ({ firstName, lastName, image, address, description }: Contact) => (
+const ContactCard = ({ contact } : { contact: Contact }) => (
   <Card className="h-100">
     <Card.Header>
-      <Image src={image} width={75} />
+      <Image src={contact.image} width={75} />
       <Card.Title>
-        {firstName}
-        {lastName}
+        {contact.firstName}
+        {' '}
+        {contact.lastName}
       </Card.Title>
       <Card.Subtitle>
-        {address}
+        {contact.address}
       </Card.Subtitle>
     </Card.Header>
     <Card.Text>
-      {description}
+      {contact.description}
     </Card.Text>
+    <Card.Footer>
+      <Link href={`edit/${contact.id}`}>Edit</Link>
+    </Card.Footer>
   </Card>
 );
 

@@ -11,6 +11,7 @@ const AdminContactCard = ({ firstName, lastName, image, address, description, ow
       <Image src={image} width={75} />
       <Card.Title>
         {firstName}
+        {' '}
         {lastName}
       </Card.Title>
       <Card.Subtitle>

@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 // eslint-disable-next-line @typescript-eslint/quotes
-import { Contact } from "@/lib/validationSchemas";
+import { Contact } from "@prisma/client";
 import ContactCard from '@/components/ContactCard';
 import { prisma } from '@/lib/prisma';
 
@@ -32,7 +32,7 @@ const ListPage = async () => {
             <Row xs={1} md={2} lg={3} className="g-4">
               {contacts.map((contact) => (
                 <Col key={contact.firstName + contact.lastName}>
-                  <ContactCard {...contact} />
+                  <ContactCard contact={contact} />
                 </Col>
               ))}
             </Row>

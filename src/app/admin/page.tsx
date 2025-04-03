@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 // eslint-disable-next-line @typescript-eslint/quotes
-import { Contact } from "@/lib/validationSchemas";
+import { Contact } from "@prisma/client";
 import AdminContactCard from '@/components/AdminContactCard';
 
 const AdminPage = async () => {

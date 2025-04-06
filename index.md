@@ -1,4 +1,4 @@
-<img src="doc/landingPage.png">
+<img src="doc/landingPage.png" width="750px">
 
 Digits is a basic Next.js 14 application that features the following:
 
@@ -231,7 +231,7 @@ By default, each user only sees the Contacts that they have created. However, th
 
 When you retrieve the app at http://localhost:3000, this is what should be displayed:
 
-<img src="doc/landingPage.png">
+<img src="doc/landingPage.png" width="750px">
 
 The next step is to use the Login menu to either Login to an existing account or register a new account.
 

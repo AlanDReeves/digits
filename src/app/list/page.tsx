@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 // eslint-disable-next-line @typescript-eslint/quotes
-import { Contact } from "@prisma/client";
+import { Contact, Note } from "@prisma/client";
 import ContactCard from '@/components/ContactCard';
 import { prisma } from '@/lib/prisma';
 
@@ -23,6 +23,11 @@ const ListPage = async () => {
       owner,
     },
   });
+  const notes: Note[] = await prisma.note.findMany({
+    where: {
+      owner,
+    },
+  });
   return (
     <main>
       <Container id="list" fluid className="py-3">
@@ -32,7 +37,10 @@ const ListPage = async () => {
             <Row xs={1} md={2} lg={3} className="g-4">
               {contacts.map((contact) => (
                 <Col key={contact.firstName + contact.lastName}>
-                  <ContactCard contact={contact} />
+                  <ContactCard
+                    contact={contact}
+                    notes={notes.filter(note => (note.contactID === contact.id))}
+                  />
                 </Col>
               ))}
             </Row>

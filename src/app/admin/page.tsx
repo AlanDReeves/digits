@@ -4,11 +4,12 @@ import { prisma } from '@/lib/prisma';
 import { adminProtectedPage } from '@/lib/page-protection';
 import authOptions from '@/lib/authOptions';
 // eslint-disable-next-line @typescript-eslint/quotes
-import { Contact } from "@prisma/client";
+import { Contact, Note } from "@prisma/client";
 import AdminContactCard from '@/components/AdminContactCard';
 
 const AdminPage = async () => {
   const contacts: Contact[] = await prisma.contact.findMany({});
+  const notes: Note[] = await prisma.note.findMany({});
   const session = await getServerSession(authOptions);
   adminProtectedPage(
     session as {
@@ -25,7 +26,10 @@ const AdminPage = async () => {
             <Row xs={1} md={2} lg={3} className="g-4">
               {contacts.map((contact) => (
                 <Col key={contact.firstName + contact.lastName}>
-                  <AdminContactCard {...contact} />
+                  <AdminContactCard
+                    contact={contact}
+                    notes={notes.filter(note => (note.contactID === contact.id))}
+                  />
                 </Col>
               ))}
             </Row>

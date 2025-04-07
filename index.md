@@ -78,7 +78,7 @@ $
 
 ## Running the system
 
-Once the libraries are installed and the database seeded, you can run the application by invoking the "dev" script in the [package.json file](https://github.com/ics-software-engineering/nextjs-application-template/blob/master/app/package.json):
+Once the libraries are installed and the database seeded, you can run the application by invoking the "dev" script in the [package.json file](https://github.com/AlanDReeves/digits/blob/main/package-lock.json):
 
 ```
 
@@ -331,7 +331,7 @@ The [.gitignore](https://github.com/AlanDReeves/digits/blob/main/.gitignore) fil
 
 #### ESLint
 
-The application includes a [.eslintrc.json](https://github.com/ics-software-engineering/nextjs-application-template/blob/main/.eslintrc.json) file to define the coding style adhered to in this application. You can invoke ESLint from the command line as follows:
+The application includes a [.eslintrc.json](https://github.com/AlanDReeves/digits/blob/main/.eslintrc.json) file to define the coding style adhered to in this application. You can invoke ESLint from the command line as follows:
 
 ```
 [~/digits]-> npm run lint
@@ -340,7 +340,7 @@ The application includes a [.eslintrc.json](https://github.com/ics-software-engi
 > next lint
 
 ✔ No ESLint warnings or errors
-[~/nextjs-application-template]->
+[~/digits]->
 ```
 
 ESLint should run without generating any errors.
